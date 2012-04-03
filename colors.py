@@ -19,7 +19,7 @@ import re
 from functools import partial
 
 
-__version__ = '1.0'
+__version__ = '1.0.1'
 
 COLORS = ('black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan',
           'white')
