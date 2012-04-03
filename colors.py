@@ -31,18 +31,18 @@ def color(s, fg=None, bg=None, style=None):
     sgr = []
 
     if fg:
-        if 0 <= fg <= 255:
-            sgr.append('38;5;%d' % fg)
-        elif fg in COLORS:
+        if fg in COLORS:
             sgr.append(str(30 + COLORS.index(fg)))
+        elif isinstance(fg, int) and 0 <= fg <= 255:
+            sgr.append('38;5;%d' % int(fg))
         else:
             raise Exception('Invalid color "%s"' % fg)
 
     if bg:
-        if 0 <= bg <= 255:
-            sgr.append('48;5;%d' % bg)
-        elif bg in COLORS:
+        if bg in COLORS:
             sgr.append(str(40 + COLORS.index(bg)))
+        elif isinstance(bg, int) and 0 <= bg <= 255:
+            sgr.append('48;5;%d' % bg)
         else:
             raise Exception('Invalid color "%s"' % bg)
 
