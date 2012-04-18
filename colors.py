@@ -12,8 +12,6 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-from __future__ import print_function
-
 import re
 
 from functools import partial
@@ -85,19 +83,3 @@ blink2 = partial(color, style='blink2')
 negative = partial(color, style='negative')
 concealed = partial(color, style='concealed')
 crossed = partial(color, style='crossed')
-
-
-if __name__ == '__main__':
-    for bg in (None,) + COLORS:
-        for fg in (None,) + COLORS:
-            for style in (None,) + STYLES:
-                text = ('%s' % (fg or 'normal')).ljust(7)
-                print(color(text, fg=fg, bg=bg, style=style), end=' ')
-            print()
-
-    for i in range(256):
-        if i % 64 == 0:
-            print()
-        print(color(' ', bg=i), end='')
-
-    print()
